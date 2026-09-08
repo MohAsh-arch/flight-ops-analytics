@@ -2,7 +2,7 @@
 
 **Document Version:** 1.0
 **Date:** 2026-09-02
-**Author:** Mohamed
+**Author:** Mohamed A. Abdelazim
 
 ## 1. System Overview
 
@@ -39,12 +39,32 @@ SkyMetrics is a data platform for a regional airline operator, built to replace 
 
 ### 2.2 Role: Revenue Analyst
 
-**Status:** Interview in progress — not yet finalized. No FRs or NFRs committed to this section until the interview is complete and reviewed.
+**Description:** Owns revenue performance and pricing strategy across routes. Accountable for explaining route profitability, competitive market position, and pricing decisions to leadership.
+
+#### Functional Requirements (FR)
+
+*Specific behaviors, actions, or features the system must provide for this role.*
+
+| Req ID | Feature / Action | Description |
+| :--- | :--- | :--- |
+| `RA-FR-01` | **Data consolidation** | The system must consolidate ticket revenue data with route performance data into a single place, so route-level profitability questions don't require manual, one-off spreadsheet work. |
+| `RA-FR-02` | **Market share by route** | The system must compute SkyMetrics's market share of passenger volume on its top 20 busiest routes, using the federal on-time performance dataset (which covers all carriers), trended monthly and quarterly, at the route level. **Open risk (to verify during data exploration):** dataset completeness for accurate per-route market volume — codeshares, edge cases, or data gaps may limit how cleanly this can be computed. This requirement may need revision once the dataset is profiled. |
+| `RA-FR-03` | **Load factor vs. on-time performance** | The system must present load factor and on-time performance side by side, at the route level, so the Revenue Analyst can evaluate whether chronic lateness correlates with reduced bookings on specific routes. |
+| `RA-FR-04` | **Yield vs. distance** | The system must calculate yield (revenue per passenger-mile) per route and present it against route distance, so the Revenue Analyst can evaluate whether short-haul and long-haul routes are being priced proportionately. |
+
+#### Non-Functional Requirements (NFR)
+
+*Quality attributes, performance, security, and usability constraints for this role.*
+
+| Req ID | Category | Description |
+| :--- | :--- | :--- |
+| `RA-NFR-01` | **Market Share & Yield Freshness** | Market share and yield figures may be refreshed monthly, with staleness of up to about a week acceptable — because these are trend numbers used to support monthly exec-review conversations, not day-to-day operational decisions, so near-term staleness doesn't affect their usefulness. |
+| `RA-NFR-02` | **Load Factor / OTP Correlation Freshness** | Load factor and on-time performance data must be refreshed weekly, not monthly — because this comparison is meant to catch a route's performance beginning to slide early enough to flag it, and month-old data would mean the warning arrives after the window to act on it has passed. |
 
 ---
 
 ### 2.3 Role: Airport Operations Director
 
-**Status:** Interview not yet started.
+**Status:** Interview in progress — not yet finalized. No FRs or NFRs committed to this section until the interview is complete and reviewed.
 
 ---

@@ -25,4 +25,4 @@ Alert thresholds will be stored as configuration (e.g. a config file, environmen
 
 **Costs:**
 - Requires a defined place to store and load this config (and a decision on where — file vs. table vs. env var — to be made when this phase is implemented).
-- Threshold changes are no longer version-controlled the same way code is, unless the config itself is checked into the repo or otherwise tracked.
+- Threshold changes are no longer version-controlled the same way code is, unless the config itself is checked into the repo or otherwise tracked. 
