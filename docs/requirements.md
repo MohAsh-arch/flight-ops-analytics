@@ -65,6 +65,24 @@ SkyMetrics is a data platform for a regional airline operator, built to replace 
 
 ### 2.3 Role: Airport Operations Director
 
-**Status:** Interview in progress — not yet finalized. No FRs or NFRs committed to this section until the interview is complete and reviewed.
+**Description:** Owns ground and network-level airport performance across the operator's network. Accountable for identifying the root cause of delay cascades and ground-operations degradation, and for building the data-backed case for infrastructure or staffing investment at specific airports.
+
+#### Functional Requirements (FR)
+
+*Specific behaviors, actions, or features the system must provide for this role.*
+
+| Req ID | Feature / Action | Description |
+| :--- | :--- | :--- |
+| `AOD-FR-01` | **Delay cascade source identification** | The system must distinguish which airports are causing delay cascades from which airports are merely experiencing delays that originated elsewhere. |
+| `AOD-FR-02` | **Taxi time trend** | The system must show taxi-out and taxi-in times per airport, trended across multiple quarters, so the Airport Operations Director can visually judge whether ground operations are sustainably worsening. No automatic threshold or alert is required — she wants to see the trend and judge it herself. |
+| `AOD-FR-03` | **Cancellation rate and cause by airport pair** | The system must show cancellation rates by airport pair, along with the primary cancellation reason (e.g. weather, mechanical, crew), so the Airport Operations Director can make a data-backed case to leadership for specific investments (e.g. de-icing equipment, ground staff) at the airports actually driving cancellations. |
+
+#### Non-Functional Requirements (NFR)
+
+*Quality attributes, performance, security, and usability constraints for this role.*
+
+| Req ID | Category | Description |
+| :--- | :--- | :--- |
+| `AOD-NFR-01` | **No freshness constraint** | Confirmed directly with the Airport Operations Director: none of her requirements are time-sensitive. All three are used for multi-quarter, budget-case-style analysis rather than day-to-day decisions, so data being days or weeks old is acceptable. She explicitly prioritized correctness of the delay-cascade classification (`AOD-FR-01`) over speed. |
 
 ---
