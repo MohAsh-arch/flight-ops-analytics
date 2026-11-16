@@ -1,0 +1,9 @@
+# .gitignore
+.env
+data/
+
+# .env  (local only, never committed)
+BTS_RAW_DIR="Your_Data_path"
+
+# .env.example  (committed, same keys, no real values)
+BTS_RAW_DIR=

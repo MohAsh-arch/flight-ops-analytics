@@ -1,0 +1,8 @@
+# .gitignore
+.env
+data/
+try.ipynb
+.vscode
+Data/
+
+venv/
