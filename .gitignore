@@ -6,3 +6,6 @@ try.ipynb
 Data/
 
 venv/
+
+__pycache__/
+*.pyc
